@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 4 for running tests
+    testImplementation 'junit:junit:4.13.2'
+
+    // Cucumber JVM with JUnit integration
+    testImplementation 'io.cucumber:cucumber-java:7.12.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.12.0'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    testImplementation group: 'org.json', name: 'json', version: '20231013'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/json-path
+    testImplementation 'io.rest-assured:json-path:5.3.0'
+
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation 'org.assertj:assertj-core:3.24.0'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
+    testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version: '5.5.0'
+
+}
+
+test {
+    useJUnit()
+}
+
