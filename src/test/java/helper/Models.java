@@ -3,6 +3,8 @@ package helper;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
+import static helper.Utility.generateRandomEmail;
 
 public class Models {
 
@@ -19,6 +21,22 @@ public class Models {
     public static Response getListUsers(String endpoint) {
         setupHeaders();
         return request.when().get(endpoint);
+    }
+
+    public static Response postCreateUsers(String endpoint) {
+        String name = "Faisal Adi Jayadi";
+        String gender = "male";
+        String email = generateRandomEmail();
+        String status = "Active";
+
+        JSONObject payload = new JSONObject();
+        payload.put("name", name);
+        payload.put("gender", name);
+        payload.put("email", email);
+        payload.put("status", status);
+
+        setupHeaders();
+        return request.body(payload.toString()).when(endpoint);
     }
 }
 

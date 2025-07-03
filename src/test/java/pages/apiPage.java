@@ -11,7 +11,9 @@ import java.io.File;
 import java.util.List;
 
 import static helper.Models.getListUsers;
+import static helper.Models.postCreateUsers;
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class apiPage {
 
@@ -25,7 +27,7 @@ Response res;
                 setURL = Endpoint.GET_LIST_USERS;
                 break;
             case "UPDATED_LIST_USERS" :
-                setURL = Endpoint.UPDATED_LIST_USERS;
+                setURL = Endpoint.CREATED_NEW_USERS;
                 break;
             case "DELETE_LIST_USERS" :
                 setURL = Endpoint.DELETE_LIST_USERS;
@@ -38,6 +40,11 @@ Response res;
 
     public void hitAPIGetListUsers () {
         res = getListUsers (setURL);
+        System.out.println(res.getBody().asString());
+    }
+
+    public void hitAPIPostCreateUsers () {
+        res = postCreateUsers (setURL);
         System.out.println(res.getBody().asString());
     }
 
