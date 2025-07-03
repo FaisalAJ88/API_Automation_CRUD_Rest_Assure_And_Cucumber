@@ -34,7 +34,7 @@ public class apiStep {
     }
 
     @Then("Validation response JSON with JSON Schema {string}")
-    public void validationResponseJSONWithJSONSchema(String arg0) {
-        ApiPage.validationResponseJSONWithJSONSchema();
+    public void validationResponseJSONWithJSONSchema(String filename) {
+        ApiPage.validationResponseJSONWithJSONSchema(filename);
     }
 }

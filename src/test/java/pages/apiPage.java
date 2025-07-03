@@ -1,10 +1,13 @@
 package pages;
 
 import helper.Endpoint;
+import helper.Utility;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.assertj.core.api.ObjectAssert;
 
+import java.io.File;
 import java.util.List;
 
 import static helper.Models.getListUsers;
@@ -59,7 +62,8 @@ Response res;
         assertThat(status.getFirst()).isIn("active","inactive");
     }
 
-    public void validationResponseJSONWithJSONSchema() {
-        System.out.println("Step from page : 5");
+    public void validationResponseJSONWithJSONSchema(String filename) {
+        File JSONFile = Utility.GetJSONSchemaFile(filename);
+        res.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(JSONFile));
     }
 }
