@@ -8,6 +8,6 @@ public class Endpoint {
 
     public static final String CREATED_NEW_USERS = HOST_GOREST +" ";
 
-    public static final String DELETE_LIST_USERS = HOST_GOREST +" ";
+    public static final String DELETE_LIST_USERS = HOST_GOREST +"";
 
 }
