@@ -22,8 +22,9 @@ Feature: OrangeHRM Login
     And Hit API post created users
     Then Validate status code is equals 201
     Then Validation response body get created users
+    Given Prepare URL for "DELETE_LIST_USERS"
     And Hit API delete new
-    Then Validate status code is equals 402
+    Then Validate status code is equals 204
 
   @api
   Scenario: Test update user normal
@@ -31,5 +32,6 @@ Feature: OrangeHRM Login
     And Hit API post created users
     Then Validate status code is equals 201
     Then Validation response body get created users
+    Given Prepare URL for "DELETE_LIST_USERS"
     And Hit API update user
-    Then Validate status code is equals 404
+    Then Validate status code is equals 201
