@@ -35,6 +35,9 @@ dependencies {
 }
 
 test {
-    useJUnit()
-}
+        useJUnit()
 
+        systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+        systemProperty "cucumber.features", System.getProperty("cucumber.features")
+        systemProperty "cucumber.glue", System.getProperty("cucumber.glue")
+    }
