@@ -35,4 +35,4 @@ Feature: OrangeHRM Login
     Given Prepare URL for "UPDATE_LIST_USERS"
     And Hit API update user
     Then Validate status code is equals 200
-    #Then Validation response body update users
+    Then Validation response body update users

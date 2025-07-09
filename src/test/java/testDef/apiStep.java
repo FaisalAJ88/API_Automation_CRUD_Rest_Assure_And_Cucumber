@@ -56,16 +56,16 @@ public class apiStep {
 
     @And("Hit API delete new")
     public void hitAPIDeleteNew() {
-        ApiPage.hitAPIDeleteUser();
+        ApiPage.hitAPDeleteUser();
     }
 
     @And("Hit API update user")
     public void hitAPIUpdateUser() {
-        ApiPage.hitAPIUpdateUser();
+        ApiPage.hitAPUpdateUser();
     }
 
     @Then("Validation response body update users")
     public void validationResponseBodyUpdateUsers() {
-        ApiPage.validationResponeBodyUpdateUser();
+        ApiPage.validationResponeBodyUpdateUsers();
     }
 }
