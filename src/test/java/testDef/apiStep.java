@@ -37,4 +37,30 @@ public class apiStep {
     public void validationResponseJSONWithJSONSchema(String filename) {
         ApiPage.validationResponseJSONWithJSONSchema(filename);
     }
+
+    @And("Hit API post created users")
+    public void hitAPIPostCreatedUsers() {
+        ApiPage.hitAPIPostCreateUsers();
+    }
+
+    @Then("Validation response body get create users")
+    public void validationResponseBodyGetCreateUsers() {
+        ApiPage.validationResponseBodyGetCreateUsers();
+    }
+
+    @Then("Validation response body get created users")
+    public void validationResponseBodyGetCreatedUsers() {
+        ApiPage.validationResponseBodyGetCreatedUsers();
+
+    }
+
+    @And("Hit API delete new")
+    public void hitAPIDeleteNew() {
+        ApiPage.hitAPDeleteUser();
+    }
+
+    @And("Hit API update user")
+    public void hitAPIUpdateUser() {
+        
+    }
 }

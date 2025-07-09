@@ -15,7 +15,7 @@ public class Models {
                 // Set header here
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .header("Authorization", "Bearer 2dcea73828a331430f8b14605e7e58adf1aa518af8cd0488a549a49c1fe0ad65");
+                .header("Authorization", "Bearer f564bf850f05ea549108f7836057a79a9eb406d461b4813df2a5af3186edcc38");
     }
 
     public static Response getListUsers(String endpoint) {
@@ -23,6 +23,11 @@ public class Models {
         return request.when().get(endpoint);
     }
 
+    public static Response DeleteUsers(String endpoint , String user_id) {
+        setupHeaders();
+        String finalEndpoint = endpoint + "/" + user_id;
+        return request.when().delete(finalEndpoint);
+    }
     public static Response postCreateUsers(String endpoint) {
         String name = "Faisal Adi Jayadi";
         String gender = "male";
@@ -31,12 +36,11 @@ public class Models {
 
         JSONObject payload = new JSONObject();
         payload.put("name", name);
-        payload.put("gender", name);
+        payload.put("gender", gender);
         payload.put("email", email);
         payload.put("status", status);
 
         setupHeaders();
-        return request.body(payload.toString()).when(endpoint);
+        return request.body(payload.toString()).when().post(endpoint);
     }
 }
-

@@ -8,8 +8,28 @@ Feature: OrangeHRM Login
     Then Validation response body get list users
     Then Validation response JSON with JSON Schema "get_list_users_normal.json"
 
-
+  @api
   Scenario: Test create new user normal
-    Given prepare url for "CREATED_NEW_USERS"
-    And hit api post create new users
-    Then hen validation status code is equals 200
+    Given Prepare URL for "CREATED_NEW_USERS"
+    And Hit API post created users
+    Then Validate status code is equals 201
+    Then Validation response body get created users
+    Then Validation response JSON with JSON Schema "post_create_new_users_normal.json"
+
+  @api
+  Scenario: Test delete user normal
+    Given Prepare URL for "CREATED_NEW_USERS"
+    And Hit API post created users
+    Then Validate status code is equals 201
+    Then Validation response body get created users
+    And Hit API delete new
+    Then Validate status code is equals 402
+
+  @api
+  Scenario: Test update user normal
+    Given Prepare URL for "CREATED_NEW_USERS"
+    And Hit API post created users
+    Then Validate status code is equals 201
+    Then Validation response body get created users
+    And Hit API update user
+    Then Validate status code is equals 404
