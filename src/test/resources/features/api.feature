@@ -1,4 +1,4 @@
-Feature: OrangeHRM Login
+Feature: API Test
 
   @api
   Scenario: Test get list data normal
