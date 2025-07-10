@@ -7,9 +7,7 @@ public class ListNumber {
     public static void main (String[] args) throws java.lang.Exception
     {
         for (int i = 1; i <= 100; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FIZZBUZZ");
-            } else if (i % 3 == 0) {
+            if (i % 3 == 0) {
                 System.out.println("FIZZ");
             } else if (i % 5 == 0) {
                 System.out.println("BUZZ");
@@ -17,8 +15,5 @@ public class ListNumber {
                 System.out.println(i);
             }
         }
-
-// your code goes here
-
     }
 }
