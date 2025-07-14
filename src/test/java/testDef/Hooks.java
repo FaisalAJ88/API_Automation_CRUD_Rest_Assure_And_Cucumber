@@ -1,6 +1,9 @@
 package testDef;
 import io.cucumber.java.*;
 
+import static helper.Utility.quitDriver;
+import static helper.Utility.startDriver;
+
 public class Hooks {
 
     @BeforeAll
@@ -13,9 +16,11 @@ public class Hooks {
 
     @Before
     public static void beforeTest () {
+        //startDriver();
     }
 
     @After
     public static void afterTest () {
+        //quitDriver();
     }
 }

@@ -32,6 +32,12 @@ dependencies {
     // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
     testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version: '5.5.0'
 
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
+
+    // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.4.1'
+
 }
 
 test {
@@ -41,3 +47,26 @@ test {
         systemProperty "cucumber.features", System.getProperty("cucumber.features")
         systemProperty "cucumber.glue", System.getProperty("cucumber.glue")
     }
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+tasks.register('apiTest') { Task it ->
+    dependsOn assemble , testClasses
+        doLast {
+            javaexec {
+                main = "io.cucumber.core.cli.Main"
+                classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+                args = [
+                        '--plugin' , 'pretty' ,
+                        '--plugin' , 'html:report/cucumber-api-report.html' ,
+                        '--glue' , 'testDef' ,
+                        '--tags' , '@api' ,
+                        'scr/test/resources/features']
+            }
+        }
+
+}
