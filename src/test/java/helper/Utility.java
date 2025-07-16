@@ -20,10 +20,10 @@ public class Utility {
     public static WebDriver driver;
 
     public static File GetJSONSchemaFile(String JSONFile) {
-        return new File("src/test/java/helper/JSONSchemaData/" +JSONFile);
+        return new File("src/test/java/helper/JSONSchemaData/" + JSONFile);
     }
 
-    public static String generateRandomEmail () {
+    public static String generateRandomEmail() {
         String AllowedChar = "abcdefghijklmnopqrstuvwxyz" + "1234567890" + "_-.";
         String email = "";
         String temp = RandomStringUtils.randomAlphabetic(10);
@@ -48,5 +48,5 @@ public class Utility {
         driver.quit();
     }
 
-
 }
+

@@ -8,8 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features/web.feature",
         glue = "testDef",
-        plugin = {"pretty", "html:reports/testing-reports.html"},
-        tags = "@api",
+        plugin = {"pretty", "html:target/testing-reports.html"},
+        tags = "@test",
         monochrome = true
 )
 

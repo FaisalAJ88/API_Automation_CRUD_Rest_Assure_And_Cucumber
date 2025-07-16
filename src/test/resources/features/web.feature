@@ -1,5 +1,6 @@
 Feature: Test Automation Web
 
+  @test
   Scenario: Login web Saucedemo with Valid Credential
     Given Open web login page
     And User input valid username "standard_user"
@@ -7,6 +8,7 @@ Feature: Test Automation Web
     And Click login button
     And User will see icon cart in Homepage
 
+  @test
   Scenario: Login web Saucedemo with Invalid Password
     Given Open web login page
     And User input valid username "standard_user"
@@ -14,6 +16,7 @@ Feature: Test Automation Web
     And Click login button
     And User will see error message "Username and password do not match"
 
+  @test
   Scenario: Login web Saucedemo with Blank Password Field
     Given Open web login page
     And User input valid username "standard_user"

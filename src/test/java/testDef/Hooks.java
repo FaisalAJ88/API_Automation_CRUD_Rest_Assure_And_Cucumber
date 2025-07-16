@@ -3,7 +3,9 @@ package testDef;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static helper.Utility.*;
 
@@ -29,6 +31,7 @@ public class Hooks {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+
         }
 
         if (scenario.isFailed()) {
@@ -38,6 +41,7 @@ public class Hooks {
                 final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", "Screenshot");
             }
+
         quitDriver();
         }
     }
