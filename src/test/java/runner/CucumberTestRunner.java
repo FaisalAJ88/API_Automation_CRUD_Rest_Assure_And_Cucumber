@@ -6,9 +6,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/web.feature",
         glue = "testDef",
-        plugin = {"pretty", "html:reports/cucumber-api-reports.html"},
+        plugin = {"pretty", "html:reports/testing-reports.html"},
         tags = "@api",
         monochrome = true
 )

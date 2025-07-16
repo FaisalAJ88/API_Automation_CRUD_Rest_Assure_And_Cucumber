@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.List;
 
 import static helper.Models.*;
+import static helper.Utility.driver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
