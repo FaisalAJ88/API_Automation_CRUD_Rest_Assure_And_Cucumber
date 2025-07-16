@@ -1,6 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.io.File;
+
 import static helper.Utility.driver;
 
 public class WebPage {
@@ -39,5 +44,15 @@ public class WebPage {
 
     public void assertErrorMsg(String errormsg) {
         driver.findElement(error_msg(errormsg)).isDisplayed();
+    }
+    
+    public void screenshot(String capture) {
+        TakesScreenshot ts = (TakesScreenshot)driver;
+
+        File sourcefile = ts.getScreenshotAs(OutputType.FILE);
+
+        File targetfile = new File(System.getProperty("user.dir") + capture);
+
+        sourcefile.renameTo(targetfile);
     }
 }

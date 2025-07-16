@@ -1,5 +1,6 @@
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import pages.WebPage;
 
 public class WebStep {
@@ -37,5 +38,10 @@ public class WebStep {
     @And("User will see error message {string}")
     public void userWillSeeErrorMessage(String errormsg) {
         webPage.assertErrorMsg(errormsg);
+    }
+
+    @Then("Take Capture Full Screen {string}")
+    public void takeCaptureFullScreen(String capture) {
+        webPage.screenshot(capture);
     }
 }
