@@ -1,6 +1,6 @@
 Feature: API Test
 
-  @api
+  @test
   Scenario: Test get list data normal
     Given Prepare URL for "GET_LIST_USERS"
     And Hit API get list users
@@ -8,7 +8,7 @@ Feature: API Test
     Then Validation response body get list users
     Then Validation response JSON with JSON Schema "get_list_users_normal.json"
 
-  @api
+  @test
   Scenario: Test create new user normal
     Given Prepare URL for "CREATED_NEW_USERS"
     And Hit API post created users
@@ -16,7 +16,7 @@ Feature: API Test
     Then Validation response body get created users
     Then Validation response JSON with JSON Schema "post_create_new_users_normal.json"
 
-  @api
+  @test
   Scenario: Test delete user normal
     Given Prepare URL for "CREATED_NEW_USERS"
     And Hit API post created users
