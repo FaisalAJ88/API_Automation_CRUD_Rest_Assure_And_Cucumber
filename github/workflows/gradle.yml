@@ -6,12 +6,17 @@ on:
   pull_request:
     branches: [ main ]
 
+permission:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout project
+      - name: Checkout actions
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -20,22 +25,24 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Grant execute permission for Gradle wrapper
-        run: chmod +x gradlew
+      - name: Setup Chrome with extra capabilities
+        uses: browser-actions/setup-chrome@1.4.0
+        with:
+          chrome-version: stable # Set Stable Version
+          chrome-options: '--headless' # Run In Headless Mode
 
-      - name: Run tests with Gradle
-        run: ./gradlew clean test
+      - name: Build with Gradlew
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew clean test # Run Test After Build Step
+
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: build/test-results/test
-
-      - name: Upload HTML reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: html-report
-          path: build/reports/tests/test
+          name: cucumber report
+          path: target/testing-reports.html
