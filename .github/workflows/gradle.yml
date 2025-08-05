@@ -28,7 +28,7 @@ jobs:
       - name: Setup Chrome with extra capabilities
         uses: browser-actions/setup-chrome@1.4.0
         with:
-          chrome-version: stable # Set Stable Version
+          chrome-version: latest # Set Stable Version
           chrome-options: '--headless' # Run In Headless Mode
 
       - name: Build with Gradlew
