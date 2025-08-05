@@ -26,7 +26,7 @@ jobs:
           java-version: '21'
 
       - name: Setup Chrome with extra capabilities
-        uses: browser-actions/setup-chrome@1.4.0
+        uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: latest # Set Stable Version
           chrome-options: '--headless' # Run In Headless Mode
